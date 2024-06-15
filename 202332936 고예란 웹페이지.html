@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>프로젝트: 반응형 웹 페이지 제작</title>
+<style>
+	/* 데스크톱 */
+	body { margin: 0 auto;
+	       width: 60%;
+	       font-family: "Nanum Gothic", "맑은 고딕", Dotum;
+	       color: #404040;
+	       font-size: 95%; }
+	a { text-decoration: none;
+	    color: white; }
+	#header { background-color: #2255e3;
+	          color: white; }
+	label, #toggle { display: none; }
+	#nav { padding: 0;
+	       margin: 0;
+	       display: inline; }
+	#nav li { display: inline-block;
+	          padding: 10px 100px;
+	          font-weight: bold;
+	          font-size: 22px; }
+	#contents { min-height: 200px;
+	            background-color: white; }
+	#contents h2 { font-size: 18px;
+	               color: #1B4F72;
+	               text-align: center;
+	               margin: 50px 0 10px 0; }
+	#contents img { display: block;
+	                margin: 5px auto; }
+	#contents h3 { text-align: center;
+	               color: #2F62B1; }
+	#contents p { padding: 0 5%;
+	              line-height: 1.7em; }
+	#footer { background-color: #323232;
+	          color: white;
+	          text-align: center;
+	          font-size: 0.85em;
+	          padding: 5px 0; }
+	/* 모바일 */
+	@media screen and (max-width: 480px) {
+		body { margin: 0 auto;
+		       width: 100%; }
+		#nav { display: none; }
+		#toggle:checked + #nav { display: block; }
+		#nav li { display: block;
+		          width: 100%;
+		          text-align: center;
+		          border-top: 1px solid white;
+		          padding: 3%;
+		          font-size: 1.1em; }
+		label { display: block;
+		        text-align: center;
+		        font-size: 20px;
+		        font-weight: bold;
+		        padding: 10px 3%; }
+		#contents img { width: 98%; }
+	}
+</style>
+<script>
+function showSection(section) {
+    var sections = document.querySelectorAll('.content-section');
+    sections.forEach(function(sec) {
+        sec.style.display = 'none';
+    });
+    document.getElementById(section).style.display = 'block';
+}
+</script>
+</head>
+<body>
+<!-- Header: 메뉴 -->
+<div id="header">
+	<label for="toggle">MENU</label>
+	<input type="checkbox" id="toggle">
+	<ul id="nav">
+		<li><a href="#" onclick="showSection('nature')"> 우리독도   </a></li>
+		<li><a href="#" onclick="showSection('ecology')"> 생태관    </a></li>
+		<li><a href="#" onclick="showSection('history')"> 역사관    </a></li>
+	</ul>
+</div>
+<!-- Contents: 본문 -->	
+<div id="contents">
+	<div id="nature" class="content-section">
+		<h2>태고의 신비를 간직하고 있는 독도의 자연을 소개해 드립니다.</h2>
+		<h2>대한민국의 아름다운 섬, 독도</h2>
+		<img src="dokdo1.jpeg">	
+		<h3>기온과 강수량</h3>
+		<p>독도의 기후는 난류의 영향을 많이 받는 전형적인 해양성 기후로 연평균기온이 12.4℃, 가장 추운 1월 평균기온이 1℃, 가장 더운 8월 평균기온이 23℃로 비교적 온난한 편이다. 바람이 많은 독도의 연평균 풍속은 4.3m/s로 남서풍이 우세한 반면 겨울에는 북동풍이 우세를 보이고 있다. </p>
+		<p>독도는 안개가 잦고 연중 흐린 날이 160일 이상이며 강우일수는 150일 정도로 연중 85%가 흐리거나 눈˙비가 내려 비교적 습한지역이다. 연평균강수량은 1,383.4mm, 겨울철 강수는 대부분 적설형태이며 폭설이 많이 내리는 것이 특징이다.</p>
+		<img src="dokdo2.jpeg">	
+	</div>
+	<div id="ecology" class="content-section" style="display:none;">
+		<h3>생태관</h3>
+		<p>독도에서 확인된 식물은 약 60종이다. 민들레, 괭이밥, 섬장대, 강아지풀, 바랭이, 쑥, 쇠비름, 명아주, 질경이, 땅채송화, 해국, 섬기린초, 갯까치수염, 왕호장근 등이 있다. </p>
+		<p>곤충은 된장잠자리, 민집게벌레, 메뚜기, 딱정벌레, 파리, 작은멋쟁이나비 등 약 130종이 발견됐다. </p>
+		<img src="dokdo3.jpg">	
+	</div>
+	<div id="history" class="content-section" style="display:none;">
+		<h3>역사관</h3>
+		<p>신증동국여지승람(1531년, 조선), 강원도 울진현조에 우산도(독도)에 관한 기록이 있다. 우산도(于山島), 울릉도(鬱陵島)가 동해에 위치하고 있음을 밝히고 독도가 울진현에 속한 조선의 영토임을 분명히 하고 있다. </p>
+		<img src="dokdo4.jpeg">	
+	</div>
+</div>
+<!-- Footer: 저작권정보 -->
+<div id="footer">
+	Copyright by 손에 잡히는 프로그래밍(웹) / Gachon University. All rights reserved. 
+</div>
+</body>
+</html>
